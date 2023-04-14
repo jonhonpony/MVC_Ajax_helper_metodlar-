@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "test";
+}
+
+<h2>test</h2>
+
+@*<div>
+    <a href="/Home/Index2">Index2 sayfasını getir</a>
+</div>*@
+<div>
+    @Ajax.ActionLink("Index2 sayfasına git", "Index2", null, new AjaxOptions { UpdateTargetId = "sayfa", LoadingElementId = "loading" }, new {@class="btn btn-warning"}) 
+    @*ajax action link kullanırsan direkt veriyi o sayfaya çekmiş oluruz*@
+</div>
+
+
+<divid ="loading"class="alert alert-success">
+
+</divid>
+<div id="sayfa">
+
+</div>

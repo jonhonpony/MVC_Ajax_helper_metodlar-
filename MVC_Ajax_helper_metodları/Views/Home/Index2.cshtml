@@ -1,0 +1,41 @@
+﻿@model MVC_Ajax_helper_metodları.Models.Kisi
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+
+@using (Ajax.BeginForm("Index2", new AjaxOptions() { HttpMethod = "POST", LoadingElementId = "loading", LoadingElementDuration = 300, UpdateTargetId = "liste", InsertionMode = InsertionMode.InsertAfter }))
+{
+    <div class="col col-md-2">
+        @Html.LabelFor(x => x.isim, new {@class = "form-control" })
+        @Html.TextBoxFor(x => x.isim, new { @class = "form-control" })
+    </div>
+    <br />
+    <div class="col col-md-2">
+        @Html.TextBoxFor(x => x.soyisim, new { @class = "form-control" })
+    </div>
+    <br />
+    <div class="col col-md-2">
+        @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+    </div>
+   
+    <br />
+    <div class="col-md-10">
+        <button type="submit" class="btn btn-success">Kaydet</button>
+    </div>
+}
+<hr />
+
+<ul class="list-group" id="liste">
+    <li id="loading" class="list-group-item list-group-item-warning" style="display:none">yükleniyor</li>
+    @if (ViewBag.kisiler != null)
+    {
+        foreach (var item in ViewBag.kisiler)
+        {
+            <li class="list-group-item" id="id_@item.Id">@item.isim</li>
+        }
+
+    }
+</ul>
+

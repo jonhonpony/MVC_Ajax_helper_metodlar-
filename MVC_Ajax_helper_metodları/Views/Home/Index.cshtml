@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<a href="#" class="btn btn-success">verileri yükle</a>*@
+
+@Ajax.ActionLink("Verileri Yükle","VeriYukle",null,new AjaxOptions(){HttpMethod ="GET",UpdateTargetId="liste",InsertionMode=InsertionMode.Replace,
+    LoadingElementId="loading",LoadingElementDuration=300},new {@class="btn btn-success"}) 
+    @*buton gibi görünsün classı 5. metoda olduğu için onu seçtik ajax post etmeden verileri çekmeye yarıyor*@
+
+
+<hr />
+<div class="alert-warning" id="loading" style="display:none;">@*loading ekranı verdirdik display kısmı da yüklenirken görünmesin diye nıne ettik*@
+    yükleniyor
+</div>
+
+<ul class="list-group"id="liste">
+    <li>
+
+
+
+
+    </li>
+</ul>
